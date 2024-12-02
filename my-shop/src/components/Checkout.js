@@ -7,11 +7,15 @@ const stripePromise = loadStripe('your_public_stripe_key');
 
 const Checkout = () => {
     const handleCheckout = async () => {
-        const { data: { id } } = await axios.post('http://localhost:8000/create-checkout-session');
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({ sessionId: id });
-        if (error) {
-            console.error(error);
+        try {
+            const { data: { id } } = await axios.post('http://localhost:8000/create-checkout-session');
+            const stripe = await stripePromise;
+            const { error } = await stripe.redirectToCheckout({ sessionId: id });
+            if (error) {
+                console.error(error.message);
+            }
+        } catch (error) {
+            console.error('Checkout error:', error);
         }
     };
 
