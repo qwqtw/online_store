@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '@mui/material';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 
@@ -16,14 +15,13 @@ const Checkout = () => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <Button
+        <div className="flex justify-center items-center mt-12">
+            <button
                 onClick={handleCheckout}
-                variant="contained"
-                sx={{ backgroundColor: '#3f51b5', padding: '10px 20px' }}
+                className="px-8 py-3 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 hover:shadow-xl transition duration-300"
             >
                 Checkout with Stripe
-            </Button>
+            </button>
         </div>
     );
 };
