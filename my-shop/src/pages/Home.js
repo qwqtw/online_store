@@ -1,23 +1,29 @@
 import React from 'react';
+import Header from '../components/Header'; // Import the Header component
 import ProductList from '../components/ProductList';
 
 const Home = () => {
     return (
         <div className="bg-gray-100 min-h-screen py-8">
             {/* Header Section */}
-            <header className="text-center mb-12">
-                <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
-                    Discover Stunning AI Artworks
-                </h1>
-                <p className="text-lg text-gray-600">
-                    Browse and purchase unique AI-generated art pieces.
-                </p>
-            </header>
+            <Header /> {/* Include the Header component */}
 
-            {/* Product List Section */}
-            <div className="container mx-auto px-4">
-                <ProductList />
-            </div>
+            {/* Main Content */}
+            <main>
+                <div className="text-center mb-12">
+                    <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+                        Discover Stunning AI Artworks
+                    </h1>
+                    <p className="text-lg text-gray-600">
+                        Browse and purchase unique AI-generated art pieces.
+                    </p>
+                </div>
+
+                {/* Product List Section */}
+                <div className="container mx-auto px-4">
+                    <ProductList />
+                </div>
+            </main>
 
             {/* Footer Section */}
             <footer className="bg-gray-800 text-white py-6 mt-12">

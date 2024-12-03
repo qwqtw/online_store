@@ -1,34 +1,27 @@
 import React from 'react';
-import { Button, Typography, Grid, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     return (
-        <div style={{ padding: '20px' }}>
-            <Typography variant="h4" sx={{ marginBottom: 2 }}>Your Cart</Typography>
+        <div className="p-6">
+            <h2 className="text-3xl font-semibold mb-6">Your Cart</h2>
             {cart.length === 0 ? (
-                <Typography>No items in the cart</Typography>
+                <p>No items in the cart</p>
             ) : (
                 cart.map((item, index) => (
-                    <Paper
-                        key={index}
-                        sx={{ padding: 2, marginBottom: 2, backgroundColor: '#f5f5f5' }}
-                    >
-                        <Typography variant="h6">{item.name}</Typography>
-                        <Typography variant="body2">${item.price}</Typography>
-                    </Paper>
+                    <div key={index} className="bg-gray-100 p-4 rounded-lg shadow-sm mb-4">
+                        <h3 className="text-xl font-semibold">{item.name}</h3>
+                        <p className="text-lg text-gray-600">${item.price}</p>
+                    </div>
                 ))
             )}
-            <Button
-                component={Link}
-                to="/"
-                variant="outlined"
-                sx={{ marginTop: 3 }}
-            >
-                Continue Shopping
-            </Button>
+            <Link to="/">
+                <button className="mt-6 px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition duration-300">
+                    Continue Shopping
+                </button>
+            </Link>
         </div>
     );
 };
